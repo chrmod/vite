@@ -52,6 +52,7 @@ function toRelativePath(filename: string, importer: string) {
  */
 
 function detectScriptRel() {
+  if (typeof document === 'undefined') return 'preload'
   const relList = document.createElement('link').relList
   return relList && relList.supports && relList.supports('modulepreload')
     ? 'modulepreload'
